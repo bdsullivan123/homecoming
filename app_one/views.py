@@ -33,7 +33,7 @@ def login(request):
     else:
         user = User.objects.filter(email=request.POST['email'])
         request.session['uuid'] = user[0].id
-        return redirect('/galaxyhub')
+        return redirect('/character_selector')
 
 def logout(request):
     del request.session['uuid']
@@ -157,13 +157,13 @@ def ship_sheet(request, ship_class):
     }
     return render(request,'ship_sheet.html', context)
 
-# def character_selector(request):
-#     user = User.objects.get(id=request.session['uuid'])
-#     characters = user.User.all()
-#     context = {
-#         'Character':characters
-#     }
-#     return render(request, 'Choose_character.html', context)
+def character_selector(request):
+    user = User.objects.get(id=request.session['uuid'])
+    characters = user.User.all()
+    context = {
+        'Character': Character.objects.filter(Char_User=request.session['uuid'])
+    }
+    return render(request, 'Choose_character.html', context)
 
 
 
