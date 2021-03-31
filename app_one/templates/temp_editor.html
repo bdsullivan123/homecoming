@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}" /> -->
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit/{{Planets.id}}" method="POST">
+        {%csrf_token%}
+        <label for="planet_name">Planet Name:</label>
+        <input type="text" name="planet_name" id="" />
+        <label for="planet_type">Planet Type:</label>
+        <select name="" id="">
+            <option value="arid">Arid</option>
+            <option value="artic">Artic</option>
+            <option value="desert">Desert</option>
+            <option value="ocean">Ocean</option>
+            <option value="urban">Urban</option>
+            <option value="swamp">Swamp</option>
+            <option value="temperate">Temperate</option>
+            <option value="gas_giant">Gas Giant</option>
+            <option value="industrial">Industrial</option>
+            <option value="alpine">Alpine</option>
+            <option value="tropical">Tropical</option>
+            <option value="moon">Moon</option>
+            <option value="valcanic">Valcanic</option>
+            <option value="barren">Barren</option>
+            <option value="forrest">Forrest</option>
+            <option value="space_station">Space Station</option>
+        </select>
+        <label for="planet_desc">Planet Description:</label>
+        <textarea name="planet_desc" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+</html>

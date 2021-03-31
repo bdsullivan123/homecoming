@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Choose Your Character</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static './sheety_style.css' %}">
+</head>
+<body>
+    <h1>Testing</h1>
+    {% for characters in Character %}
+    <!-- <ul>
+        <li><a href="/Choose_character/{{race.race_name}}">{{race.race_name}}</a></td>
+    </ul> -->
+    <ul>
+        <li>{{characters.Char_First_Name}}</li>
+    </ul>
+    {% endfor %}
+</body>
+</html>

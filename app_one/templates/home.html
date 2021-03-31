@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="{% static 'img/coollogo_com-129111245.png' %}" alt=" Homecoming Logo">
+        <div id="login_reg">
+            <a class="login_link" href="/login_page">LOG IN</a>
+            <p id="breaker"> // </p>
+            <a class="login_link" href="/register_page">SIGN UP</a>
+        </div>
+    </header>
+    <div id="rules_list" class="register_wrapper">
+        <h1>Rules</h1>
+        <p>Rule 1: No seducing the Ewoks.</p>
+        <p>Rule 2: Do not have multiple accounts.</p>
+        <p>Rule 3: Don't be rude to other players.</p>
+        <p>Rule 4: We understand roleplaying can be fun, but don't take it too far.</p>    
+    </div>
+</body>
+
+</html>

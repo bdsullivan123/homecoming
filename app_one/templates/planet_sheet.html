@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './sheety_style.css' %}">
+</head>
+
+<body>
+    <header>
+        <a id="logout" href="/logout">Logout</a>
+        <a id="go_back" href="/galaxyhub">Go Back</a>
+    </header>
+    <div id="planet_info">
+        <h2>{{Planet.planet_name}}</h2>
+        <div id="pic_sum">
+            <img id="planet_type" src="{% static 'img/' %}{{Planet.planet_type}}.png" alt="planet picture">
+            <h3>Summary</h3>
+            <p>{{Planet.planet_desc}}</p>
+        </div>
+        <form action="">
+            <button id="travel_button" type="submit">Travel to This Planet</button>
+        </form>
+    </div>
+</body>
+
+</html>

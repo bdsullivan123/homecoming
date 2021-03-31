@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './sheety_style.css' %}">
+</head>
+<body>
+
+<div class="page_wrapper">
+    <a id="logout" href="/logout">Logout</a>
+    <a href="galaxyhub">Go Back</a>
+<div>
+    <h2>{{Ship.ship_name}}</h2>
+    <img id="boba" src="{% static 'img/{{Ship.ship_class}}.png' %}" alt="Ship">
+</div>
+<div><h2>Description</h2><p>{{Ship.ship_desc}}</p></div>
+</div>
+<div>
+    <h2>Stats</h2> 
+    <ul>
+        <tr>
+            <th>Speed</th>
+        </tr>
+        <tr>
+            <td>{{Ship.ship_speed_modifier}}</td>
+        </tr>
+    </ul>
+</div>
+</body>
+</html>
+</body>
+</html>

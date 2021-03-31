@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}" /> -->
+    <title>Document</title>
+</head>
+<body>
+    <form action="/planet/create" method="POST">
+        {%csrf_token%}
+        <label for="planet_name">Planet Name:</label>
+        <input type="text" name="planet_name" id="" />
+        <label for="planet_type">Planet Type:</label>
+        <select name="planet_type" id="">
+            <option value="Arid">Arid</option>
+            <option value="Artic">Arctic</option>
+            <option value="Desert">Desert</option>
+            <option value="Ocean">Ocean</option>
+            <option value="Urban">Urban</option>
+            <option value="Swamp">Swamp</option>
+            <option value="Temperate">Temperate</option>
+            <option value="Gas Giant">Gas Giant</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Alpine">Alpine</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Moon">Moon</option>
+            <option value="Volcanic">Volcanic</option>
+            <option value="Barren">Barren</option>
+            <option value="Forest">Forest</option>
+            <option value="Space Station">Space Station</option>
+        </select>
+        <label for="planet_region">Planet Region:</label>
+        <select name="planet_region" id="">
+          <option value="Core Worlds">Core Worlds</option>
+          <option value="Inner Rim">Inner Rim</option>
+          <option value="Mid Rim">Mid Rim</option>
+          <option value="Outer Rim">Outer Rim</option>
+          <option value="Unknown Regions">Unknown Regions</option>
+        </select>
+        <label for="planet_desc">Planet Description:</label>
+        <textarea name="planet_desc" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+    <table class="table">
+      <tr>
+        <th>Planet ID</th>
+        <th>Planet Name</th>
+        <th>Planet Type</th>
+        <th>Planet Region</th>
+        <th>Planet Description</th>
+        <th>Actions</th>
+      </tr>
+          {% for planet in Planets %}
+      <tr>
+        <td>{{planet.id}}</td>
+        <td>{{planet.planet_name}}</td>
+        <td>{{planet.planet_type}}</td>
+        <td>{{planet.planet_region}}</td>
+        <td>{{planet.planet_desc}}</td>
+        <td>
+          <a href="/planet/remove/{{planet.id}}">Remove</a> |
+          <a href="/planet/edit/{{planet.id}}">Edit</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+</body>
+</html>

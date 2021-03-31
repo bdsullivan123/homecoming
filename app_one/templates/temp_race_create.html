@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'style.css' %}" /> -->
+    <title>Document</title>
+</head>
+<body>
+    <form action="/race/create" method="POST">
+        {%csrf_token%}
+        <label for="name">Race Name:</label>
+        <input type="text" name="name" id="" />
+        <label for="hitpoints">Hitpoints:</label>
+        <input type="number" name="hitpoints">
+        <label for="strength">Strength:</label>
+        <input type="number" name="strength">
+        <label for="agility">Agility:</label>
+        <input type="number" name="agility">
+        <label for="endurance">Endurance:</label>
+        <input type="number" name="endurance">
+        <label for="intelligence">Intelligence:</label>
+        <input type="number" name="intelligence">
+        <label for="defense">Defense:</label>
+        <input type="number" name="defense">
+        <label for="credit">Credits:</label>
+        <input type="number" name="credit">
+        <label for="descrip">Race Description:</label>
+        <textarea name="descrip" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+    <table class="table">
+      <tr>
+        <th>Race ID</th>
+        <th>Race Name</th>
+        <th>Race Hitpoints</th>
+        <th>Race Strength</th>
+        <th>Race Agility</th>
+        <th>Race Endurance</th>
+        <th>Race Intelligence</th>
+        <th>Race Defense </th>
+        <th>Race Credits</th>
+        <th>Actions</th>
+      </tr>
+          {% for race in Races%}
+      <tr>
+        <td>{{race.id}}</td>
+        <td>{{race.name}}</td>
+        <td>{{race.hitpoints}}</td>
+        <td>{{race.strength}}</td>
+        <td>{{race.agility}}</td>
+        <td>{{race.endurance}}</td>
+        <td>{{race.intelligence}}</td>
+        <td>{{race.defense}}</td>
+        <td>{{race.credit}}</td>
+        <td>
+          <a href="/race/remove/{{race.id}}">Remove</a> |
+          <a href="/race/edit/{{race.id}}">Edit</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

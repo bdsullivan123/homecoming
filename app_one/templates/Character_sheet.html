@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './sheety_style.css' %}">
+</head>
+<body>
+
+<div class="page_wrapper">
+    <a id="logout" href="/logout">Logout</a>
+    <a href="galaxyhub">Go Back</a>
+<div>
+    <h2>{{Character.Char_First_Name}}{{Character.Char_Last_Name}}</h2>
+    <img id="boba" src="{% static 'img/{{Character.Char_Race}}.png' %}" alt="Character picture">
+</div>
+<div><h2>Summary</h2><p>{{Race.descrip}}</p></div>
+</div>
+<div>
+<table>
+    <tr>
+        <th>Facilities</th>
+        <th>Locations</th>
+    </tr>
+    <tr>
+        <td>
+            <a href="#">List of Fac</a>
+        </td>
+        <td>
+            <a href="#">Location</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="#">List of Fac</a>
+        </td>
+        <td>
+            <a href="#">Location</a>
+        </td>
+    </tr>
+</table>
+</div>
+<div>
+    <h3>Skills</h3>
+    <table>
+        <tr>
+        <th>Skill</th>
+        <th>Current Level</th>
+        <th>Time to Next Level</th>
+        </tr>
+        <tr>
+            <td>Skill Info</td>
+            <td>1-5</td>
+            <td>???TIME???</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+</body>
+</html>
