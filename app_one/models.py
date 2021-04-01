@@ -102,7 +102,7 @@ class Npc(models.Model):
 class Cities(models.Model):
     City_name = models.CharField(max_length = 50)
 
-class Characters(models.Model):
+class Character(models.Model):
     Char_First_Name= models.CharField(max_length=25)
     Char_Last_Name= models.CharField(max_length=25)
     Char_Race = models.ForeignKey(Race, related_name="characters", on_delete = models.CASCADE)

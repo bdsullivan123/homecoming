@@ -20,7 +20,14 @@
             <img id="boba" src="{% static 'img/' %}{{Character.Char_Race}}.png" alt="{{Char_First_Name}} {{Char_Last_Name}}">
         </a>
     </div>
+    <div>
+        {{% elif (selector == 0) %}}
+        <a href="galaxyhub">
+            <img id="boba" src="{% static 'img/Default_Blank.png' %}" alt="Default Blank">
+        </a>
+    </div>
     {% endfor %}
+    {% endif %}
     {% endif %}
     </div>    
     <div class="selector">
