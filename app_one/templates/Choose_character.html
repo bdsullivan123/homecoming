@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Choose Your Character</title>
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static './sheety_style.css' %}">
+    <title>Character Selection</title>
 </head>
+
 <body>
-    <h1>Testing</h1>
-    {% for characters in Character %}
-    <ul>
-<<<<<<< HEAD
-        <li><a href="/Choose_character/{{race.race_name}}">{{race.race_name}}</a></td>
-=======
-        <li><a href="/Choose_character/{{Character.Char_Race}}">{{Character.Char_Race}}</a></td>
->>>>>>> a657e8969754316d8bc51d9d48ea842a62ccec48
-    </ul>
-    <ul>
-        <li>{{characters.Char_First_Name}}</li>
-    </ul>
-    {% endfor %}
+    <div class="page_wrapper">
+        <div class="Selector">
+            {{% if (selector > 0 && selector < 4) %}} {% for race in Character.Char_User.all %} <div>
+                <h2>{{Char_First_Name}} {{Char_Last_Name}}</h2>
+                <a href="galaxyhub">
+                    <img id="boba" src="{% static 'img/' %}{{Character.Char_Race}}.png"
+                        alt="{{Char_First_Name}} {{Char_Last_Name}}">
+                </a>
+        </div>
+        <div>
+            {{% elif (selector == 0) %}}
+            <a href="galaxyhub">
+                <img id="boba" src="{% static 'img/Default_Blank.png' %}" alt="Default Blank">
+            </a>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+    </div>
+    </div>
+
 </body>
+
 </html>
