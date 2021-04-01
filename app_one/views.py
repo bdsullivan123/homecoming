@@ -157,13 +157,13 @@ def ship_sheet(request, ship_class):
     }
     return render(request,'ship_sheet.html', context)
 
-# def character_selector(request):
-#     user = User.objects.get(id=request.session['uuid'])
-#     characters = user.User.all()
-#     context = {
-#         'Character':characters
-#     }
-#     return render(request, 'Choose_character.html', context)
+def character_selector(request):
+    user = User.objects.get(id=request.session['uuid'])
+    characters = user.User.all()
+    context = {
+        'Character':characters
+    }
+    return render(request, 'Choose_character.html', context)
 
 
 

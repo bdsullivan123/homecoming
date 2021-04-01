@@ -23,6 +23,12 @@
     {% endfor %}
     {% endif %}
     </div>    
+    <div class="selector">
+        {{% if (selector == 0) %}}
+        {% for race in Character.Char.all %}
+    </div>
+    <h2>Create a Character</h2>
+    <img src="{% static 'img/Default_.png' %}" alt="">
 </div>
 
 </body>

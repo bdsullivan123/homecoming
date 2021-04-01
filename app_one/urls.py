@@ -23,6 +23,6 @@ urlpatterns = [
     path('planet_sheet/<planet_name>',views.planet_sheet),
     # path('planet_sheet',views.planet_sheet),
     path('ship_sheet',views.ship_sheet),
-    # path('character_selector', views.character_selector),
+    path('character_selector', views.character_selector),
     # path('timer')
 ]
