@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './character_style.css' %}">
+    <title>Character Creation</title>
+</head>
+<body>
+    <h1>Create your Character!</h1>
+    <form action="/character_creation" method="post">
+        {% csrf_token %}
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="">
+        <label for="race">Race</label>
+        <select name="race" id="">
+            {% for race in Race%}
+            <option value="{{race.id}}">{{race.name}}</option>
+            {% endfor %}
+        </select>
+        <button>Create</button>
+    </form>
+</body>
+</html>

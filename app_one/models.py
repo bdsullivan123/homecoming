@@ -51,15 +51,6 @@ class Planets(models.Model):
     planet_desc = models.TextField()
     planet_region = models.CharField(max_length=255)
 
-class Skill(models.Model):
-    skill_title = models.CharField(max_length=25)
-    skill_level = models.IntegerField()
-    start_time = models.DateTimeField()
-    time_to_complete = models.IntegerField()
-
-class Skill_Que(models.Model):
-    skills_in_que = models.CharField(max_length=25)
-    skills = models.ForeignKey(Skill, related_name="skills", on_delete = models.CASCADE, default='null')
 
 class Profession(models.Model):
     pass
@@ -102,11 +93,10 @@ class Npc(models.Model):
 class Cities(models.Model):
     City_name = models.CharField(max_length = 50)
 
-class Character(models.Model):
+class Characters(models.Model):
     Char_First_Name= models.CharField(max_length=25)
     Char_Last_Name= models.CharField(max_length=25)
     Char_Race = models.ForeignKey(Race, related_name="characters", on_delete = models.CASCADE)
-    Char_Level = models.IntegerField()
-    Char_Skill = models.ForeignKey(Skill, related_name='Characters', on_delete = models.CASCADE)
-    Char_Profession = models.ForeignKey(Profession, related_name='Character', on_delete= models.CASCADE)
+    # Char_Profession = models.ForeignKey(Profession, related_name='Character', on_delete= models.CASCADE)
     Char_User = models.ForeignKey(User, related_name='User', on_delete= models.CASCADE)
+    # Char_Location = models.ForeignKey(Planets, related_name='current_location', on_delete=models.CASCADE)

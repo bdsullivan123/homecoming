@@ -133,9 +133,9 @@ def raceremove(request,race_id):
     race.delete()
     return redirect('/race')
 
-def character_sheet(request, Race):
-    Race = Character.objects.filter(Char_Race=Char_Race)
-    imgurl = f"img/{Race[0].name}.png"
+def character_sheet(request,Char_Race):
+    Race = Characters.objects.filter(Char_Race=Char_Race)
+    imgurl = (f"img/{Characters[0].Char_Race}.png")
     context = {
         'Race': Race[0],
         'img': imgurl
@@ -159,18 +159,53 @@ def ship_sheet(request, ship_class):
 
 def character_selector(request):
     user = User.objects.get(id=request.session['uuid'])
-    characters = user.User.all()
     context = {
-        'Character': Character.objects.filter(Char_User=request.session['uuid'])
+        'Characters': Characters.objects.filter(Char_User=request.session['uuid']),
+        'selector' : len(Characters.objects.filter(Char_User=request.session['uuid'])),
     }
     return render(request, 'Choose_character.html', context)
 
+def character_creation(request):
+    Characters.objects.create(
+        Char_First_Name= request.POST['first_name'],
+        Char_Last_Name= request.POST['last_name'],
+        Char_Race = Race.objects.get(id=request.POST['race']),
+    )
+    return redirect('galaxyhub.html')
+
+def Character_final_creation(request):
+    context = {
+        'Race':Race.objects.all()
+    }
+    return render(request, 'character_creation.html',context)
 
 
-# commenting this out
 
 
 
 
-            # 'selector' : len(Character.Char_User.all),
-        # 'Character' : Character.objects.Char_User.
+
+        #   {% if User.id == destination.user.id%}
+        #   <a href="/trips/remove/{{destination.id}}">Remove</a> |
+        #   <a href="/trips/edit/{{destination.id}}">Edit</a>
+        #   {% endif %}
+
+
+
+# To DO 
+
+# character creation functionality
+
+# ship selection / we can just use a default like the friggin yacht
+# fix travel menu
+# current location functionality (for each logged in char)
+# travel functionality
+
+# skills / levels Databased
+# current skill level functionality
+# skill training levels functionality
+
+
+
+
+# 'Character' : Character.objects.Char_User.

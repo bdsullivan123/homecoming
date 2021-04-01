@@ -24,5 +24,7 @@ urlpatterns = [
     # path('planet_sheet',views.planet_sheet),
     path('ship_sheet',views.ship_sheet),
     path('character_selector', views.character_selector),
+    path('character_creation',views.character_creation),
+    path('Character_final_creation', views.Character_final_creation),
     # path('timer')
 ]

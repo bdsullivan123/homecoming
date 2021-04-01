@@ -14,20 +14,21 @@
 <body>
     <div class="page_wrapper">
         <div class="Selector">
-            {% if (selector > 0 && selector < 4) %} {% for race in Character.Char_User.all %} <div>
+            {% if selector > 0 and selector < 4 %}
+            {% for race in Characters.Char_User.all %} <div>
                 <h2>{{Char_First_Name}} {{Char_Last_Name}}</h2>
                 <a href="galaxyhub">
-                    <img id="boba" src="{% static 'img/' %}{{Character.Char_Race}}.png"
+                    <img id="boba" src="{% static 'img/' %}{{Characters.Char_Race}}.png"
                         alt="{{Char_First_Name}} {{Char_Last_Name}}">
                 </a>
         </div>
+        {% endfor %}
         <div>
-            {% elif (selector == 0) %}
-            <a href="galaxyhub">
+            {% elif selector == 0 %}
+            <a href="Character_final_creation">
                 <img id="boba" src="{% static 'img/Default_Blank.png' %}" alt="Default Blank">
             </a>
         </div>
-        {% endfor %}
         {% endif %}
     </div>
     </div>
