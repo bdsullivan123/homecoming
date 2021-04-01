@@ -82,3 +82,7 @@ header {
     color: white;
     margin: auto;
 }
+
+.Selector {
+    border: 1px red solid;
+}

@@ -162,16 +162,20 @@ def character_selector(request):
     context = {
         'Characters': Characters.objects.filter(Char_User=request.session['uuid']),
         'selector' : len(Characters.objects.filter(Char_User=request.session['uuid'])),
+        'Race' : Race.objects.all()
     }
     return render(request, 'Choose_character.html', context)
 
 def character_creation(request):
+    space_station = Planets.objects.get(id=3)
     Characters.objects.create(
         Char_First_Name= request.POST['first_name'],
         Char_Last_Name= request.POST['last_name'],
         Char_Race = Race.objects.get(id=request.POST['race']),
+        Char_User = User.objects.get(id=request.session['uuid']),
+        Char_Location = space_station
     )
-    return redirect('galaxyhub.html')
+    return redirect('galaxyhub')
 
 def Character_final_creation(request):
     context = {
@@ -179,16 +183,16 @@ def Character_final_creation(request):
     }
     return render(request, 'character_creation.html',context)
 
-
-
-
-
-
-
         #   {% if User.id == destination.user.id%}
         #   <a href="/trips/remove/{{destination.id}}">Remove</a> |
         #   <a href="/trips/edit/{{destination.id}}">Edit</a>
         #   {% endif %}
+
+
+
+
+
+
 
 
 

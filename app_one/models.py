@@ -99,4 +99,8 @@ class Characters(models.Model):
     Char_Race = models.ForeignKey(Race, related_name="characters", on_delete = models.CASCADE)
     # Char_Profession = models.ForeignKey(Profession, related_name='Character', on_delete= models.CASCADE)
     Char_User = models.ForeignKey(User, related_name='User', on_delete= models.CASCADE)
-    # Char_Location = models.ForeignKey(Planets, related_name='current_location', on_delete=models.CASCADE)
+    Char_Location = models.ForeignKey(Planets, related_name='current_location', on_delete=models.CASCADE,null=True)
+
+class Skill(models.Model):
+    skill_title = models.CharField(max_length=25)
+    skill_level = models.IntegerField()
