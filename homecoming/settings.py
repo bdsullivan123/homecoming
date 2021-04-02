@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['https://swhomecoming.herokuapp.com/','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'herokuapp',
     'app_one',
     'django.contrib.admin',
     'django.contrib.auth',
