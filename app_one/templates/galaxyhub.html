@@ -134,6 +134,16 @@
             margin-top: 20px;
             margin-left: 100px;
         }
+
+        #travel_button {
+            padding: 3px;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-radius: 5px;
+            background-color: #484848;
+            color: white;
+            margin-left: 3px;
+        }
     </style>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="{% static 'script.js' %}"></script>
@@ -142,7 +152,8 @@
 <body id="thegame_body">
     <video id="myVideo" src="{% static 'img/swirling_galaxy.mp4' %}" autoplay loop muted></video>
     <div class="content">
-        <img id="boba" src="{% static 'img/' %}{{Character.Char_Race.name}}.png" alt="{{Character.Char_First_Name}} {{Character.Char_Last_Name}}">
+        <img id="boba" src="{% static 'img/' %}{{Character.Char_Race.name}}.png"
+            alt="{{Character.Char_First_Name}} {{Character.Char_Last_Name}}">
     </div>
     <div class="content" id="planet_wrapper">
         <div id="travel">
@@ -154,15 +165,15 @@
                     <option value="Inner Rim">Inner Rim</option>
                     <option value="Mid Rim">Mid Rim</option>
                     <option value="Outer Rim">Outer Rim</option>
-                    <input type ="submit" value="Travel"></input>
+                    <input id="travel_button" type="submit" value="Travel"></input>
                 </select>
             </form>
         </div>
         {% for planet in Planets %}
         {% if planet.planet_name != "Space Station" %}
-        <ul>
-            <li><a href="/planet_sheet/{{planet.planet_name}}">{{planet.planet_name}}</a></td>
-        </ul>
+            <ul>
+                <li><a href="/planet_sheet/{{planet.planet_name}}">{{planet.planet_name}}</a></td>
+            </ul>
         {% endif %}
         {% endfor %}
     </div>

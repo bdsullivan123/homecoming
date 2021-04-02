@@ -44,7 +44,7 @@ body {
     border: 2px darkgrey solid;
     border-radius: 10px;
     background-image: none;
-    width: 25%;
+    width: 50%;
     margin: auto;
     padding: 10px;
     margin-bottom: 20px;
@@ -104,12 +104,13 @@ header {
     width: 25%;
     margin: auto;
     padding: 10px;
-    margin-bottom: 20px;
-    align-items: baseline;
+    margin-top: 0;
+    text-align: center;
 }
 
 #true_wrapper {
     display: flex;
-    border: 1px red solid;
-    /* width: 70%; */
+    align-items: flex-start;
+    width: 55%;
+    margin: auto;
 }
