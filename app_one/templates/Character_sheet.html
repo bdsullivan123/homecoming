@@ -11,57 +11,25 @@
     {% load static %}
     <link rel="stylesheet" href="{% static './sheety_style.css' %}">
 </head>
+
 <body>
 
-<div class="page_wrapper">
     <a id="logout" href="/logout">Logout</a>
-    <a href="galaxyhub">Go Back</a>
-<div>
-    <h2>{{Characters.Char_First_Name}}{{Characters.Char_Last_Name}}</h2>
-    <img id="boba" src="{% static 'img/'}{{Characters.Char_Race}}.png" alt="Character picture">
-</div>
-<div><h2>Summary</h2><p>{{Race.descrip}}</p></div>
-</div>
-<div>
-<table>
-    <tr>
-        <th>Facilities</th>
-        <th>Locations</th>
-    </tr>
-    <tr>
-        <td>
-            <a href="#">List of Fac</a>
-        </td>
-        <td>
-            <a href="#">Location</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#">List of Fac</a>
-        </td>
-        <td>
-            <a href="#">Location</a>
-        </td>
-    </tr>
-</table>
-</div>
-<div>
-    <h3>Skills</h3>
-    <table>
-        <tr>
-        <th>Skill</th>
-        <th>Current Level</th>
-        <th>Time to Next Level</th>
-        </tr>
-        <tr>
-            <td>Skill Info</td>
-            <td>1-5</td>
-            <td>???TIME???</td>
-        </tr>
-    </table>
-</div>
+    <a id="go_back" href="galaxyhub">Go Back</a>
+    <div id="planet_info" class="page_wrapper">
+        <div>
+            <div class="content">
+                <h3>{{Character.Char_First_Name}} {{Character.Char_Last_Name}}</h3>
+                <img id="bio_img" src="{% static 'img/' %}{{Character.Char_Race.name}}.png"
+                    alt="{{Character.Char_First_Name}} {{Character.Char_Last_Name}}">
+            </div>
+        </div>
+        <div>
+            <h2>Summary</h2>
+            <p>{{Character.Char_Race.descrip}}</p>
+        </div>
+    </div>
+    <div>
 </body>
-</html>
-</body>
+
 </html>

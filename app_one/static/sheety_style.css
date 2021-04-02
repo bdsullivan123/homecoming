@@ -47,7 +47,7 @@ body {
     width: 25%;
     margin: auto;
     padding: 10px;
-    margin-top: -2%;
+    margin-bottom: 20px;
 }
 
 #planet_info form {
@@ -84,3 +84,10 @@ header {
     margin: auto;
 }
 
+#bio_img {
+    width: 150px;
+}
+
+.content h3 {
+    margin: auto;
+}

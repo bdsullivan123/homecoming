@@ -10,28 +10,36 @@
     <link rel="stylesheet" href="{% static './character_style.css' %}">
     <title>Character Selection</title>
 </head>
+<a id="logout" href="/logout">Logout</a>
+<h1>Choose Your Character</h1>
 
 <body>
     <div class="page_wrapper">
         <div class="Selector">
             {% if selector > 0 and selector < 4 %} 
-            {% for character in Characters %}
-                <div>
-                    <h2>{{character.Char_First_Name}} {{character.Char_Last_Name}}</h2>
-                <a href="galaxyhub">
+            {% for character in Characters %} 
+            <div class="section">
+                <h2>{{character.Char_First_Name}} {{character.Char_Last_Name}}</h2>
+                <form id="character_box" action="Character_Selection" method="POST">
+                    {% csrf_token %}
                     <img id="boba" src="{% static 'img/' %}{{character.Char_Race.name}}.png"
                         alt="{{character.Char_First_Name}} {{character.Char_Last_Name}}">
-                </a>
+                    <input type="hidden" name="Character_ID" value="{{character.id}}">
+                    <a class='button' href="/character/remove/{{character.id}}">Remove Character</a>
+                    <button type="submit">Choose Character</button>
+                </form>
         </div>
         {% endfor %}
         {% endif %}
-        <div>
-            {% if selector < 4 %}
+
+        {% if selector < 3 %} <div class="section">
+            <h2>Create Character</h2>
             <a href="Character_final_creation">
-                <img id="boba" src="{% static 'img/Default_Blank.png' %}" alt="Default Blank">
+                <img class="center_yourself" src="{% static 'img/Default_Blank.png' %}" alt="Default Blank">
             </a>
-        </div>
-        {% endif %}
+            <p>Click picture to create a new character.</p>
+    </div>
+    {% endif %}
     </div>
     </div>
 

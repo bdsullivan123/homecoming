@@ -3,56 +3,76 @@ from django.contrib import messages
 from .models import *
 import bcrypt
 
+
 def index(request):
-    return render(request,'home.html')
+    return render(request, 'home.html')
+
 
 def regis(request):
     errors = User.objects.emailValidator(request.POST)
 
     if len(errors) > 0:
         for key, value in errors.items():
-            messages.error(request,value)
+            messages.error(request, value)
         return redirect('/register_page')
     else:
-        pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
+        pw_hash = bcrypt.hashpw(
+            request.POST['password'].encode(), bcrypt.gensalt()).decode()
         user = User.objects.create(
-            first_name = request.POST['first_name'],
-            last_name = request.POST['last_name'],
-            email = request.POST['email'],
-            password = pw_hash
+            first_name=request.POST['first_name'],
+            last_name=request.POST['last_name'],
+            email=request.POST['email'],
+            password=pw_hash
         )
         request.session['uuid'] = user.id
     return redirect('/character_selector')
+
 
 def login(request):
     errors = User.objects.loginValidator(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
-            messages.error(request,value)
+            messages.error(request, value)
             return redirect('/login_page')
     else:
         user = User.objects.filter(email=request.POST['email'])
         request.session['uuid'] = user[0].id
         return redirect('/character_selector')
 
+
 def logout(request):
-    del request.session['uuid']
+    request.session.clear()
     return redirect('/')
 
 def login_page(request):
-    return render(request,'login.html')
+    return render(request, 'login.html')
+
 
 def register(request):
-    return render(request,'register.html')
+    return render(request, 'register.html')
+
 
 def Skill_timer(request):
     pass
 
+
 def galaxyhub(request):
     context = {
-        'Planets':Planets.objects.filter(planet_region="Core Worlds")
+        'Character': Characters.objects.get(id=request.session['Character_ID']),
+        'Planets': Planets.objects.filter(planet_region="Core Worlds"),
+        'Race': Race.objects.all()
+    }
+    return render(request, 'galaxyhub.html', context)
+
+
+def galaxyhub1(request):
+    context = {
+        'Character': Characters.objects.get(id=request.session['Character_ID']),
+        'Planets': Planets.objects.filter(planet_region=request.POST['travel']),
+        'Race': Race.objects.all()
     }
     return render(request,'galaxyhub.html',context)
+
 
 def planet(request):
     context = {
@@ -133,12 +153,10 @@ def raceremove(request,race_id):
     race.delete()
     return redirect('/race')
 
-def character_sheet(request,Char_Race):
-    Race = Characters.objects.filter(Char_Race=Char_Race)
-    imgurl = (f"img/{Characters[0].Char_Race}.png")
+def character_sheet(request):
     context = {
-        'Race': Race[0],
-        'img': imgurl
+        'Character': Characters.objects.get(id=request.session['Character_ID']),
+        'Race' : Race.objects.all()
     }
     return render(request,'Character_sheet.html',context)
 
@@ -175,7 +193,7 @@ def character_creation(request):
         Char_User = User.objects.get(id=request.session['uuid']),
         Char_Location = space_station
     )
-    return redirect('galaxyhub')
+    return redirect('/character_selector')
 
 def Character_final_creation(request):
     context = {
@@ -183,10 +201,23 @@ def Character_final_creation(request):
     }
     return render(request, 'character_creation.html',context)
 
-        #   {% if User.id == destination.user.id%}
-        #   <a href="/trips/remove/{{destination.id}}">Remove</a> |
-        #   <a href="/trips/edit/{{destination.id}}">Edit</a>
-        #   {% endif %}
+def Character_Selection(request):
+    if 'Character_ID' not in request.session:
+        request.session['Character_ID'] = request.POST['Character_ID']
+    return redirect('/galaxyhub')
+
+def characterremove(request,character_id):
+    character = Characters.objects.get(id=character_id)
+    character.delete()
+    return redirect('/character_selector')
+
+def signout(request):
+    if 'Character_ID' in request.session:
+        del request.session['Character_ID']
+    return redirect('/character_selector')
+
+
+
 
 
 
@@ -197,8 +228,6 @@ def Character_final_creation(request):
 
 
 # To DO 
-
-# character creation functionality
 
 # ship selection / we can just use a default like the friggin yacht
 # fix travel menu

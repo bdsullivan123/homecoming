@@ -55,7 +55,7 @@
         }
 
         #boba {
-            width: 30%;
+            width: 200px;
         }
 
         #logout {
@@ -74,7 +74,7 @@
 
         #planet_wrapper {
             display: flex;
-            width: 600px;
+            width: 650px;
             height: 500px;
             flex-direction: column;
             flex-wrap: wrap;
@@ -102,7 +102,7 @@
 
         #ui {
             margin-top: 10%;
-            margin-left: 17%;
+            margin-left: 15%;
             margin-bottom: 2%;
             color: white;
             background: rgba(72, 72, 72, 0.7);
@@ -120,6 +120,20 @@
             color: grey;
             text-decoration: underline;
         }
+
+        #go_back {
+            position: fixed;
+            text-decoration: none;
+            background-image: none;
+            padding: 3px;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-radius: 5px;
+            background-color: #484848;
+            color: white;
+            margin-top: 20px;
+            margin-left: 100px;
+        }
     </style>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="{% static 'script.js' %}"></script>
@@ -128,16 +142,21 @@
 <body id="thegame_body">
     <video id="myVideo" src="{% static 'img/swirling_galaxy.mp4' %}" autoplay loop muted></video>
     <div class="content">
-        <img id="boba" src="{% static 'img/pngwing.com.png' %}" alt="boba fett">
+        <img id="boba" src="{% static 'img/' %}{{Character.Char_Race.name}}.png" alt="{{Character.Char_First_Name}} {{Character.Char_Last_Name}}">
     </div>
     <div class="content" id="planet_wrapper">
         <div id="travel">
-            <label for="travel">Travel To:</label>
-            <select name="travel">
-                <option value="Core Worlds">Core Worlds</option>
-                <option value="Inner Rim">Inner Rim</option>
-                <option value="Mid Rim">Mid Rim</option>
-            </select>
+            <form action="/galaxyhub1" method="POST">
+                {% csrf_token %}
+                <label for="travel">Travel To:</label>
+                <select name="travel">
+                    <option value="Core Worlds">Core Worlds</option>
+                    <option value="Inner Rim">Inner Rim</option>
+                    <option value="Mid Rim">Mid Rim</option>
+                    <option value="Outer Rim">Outer Rim</option>
+                    <input type ="submit" value="Travel"></input>
+                </select>
+            </form>
         </div>
         {% for planet in Planets %}
         {% if planet.planet_name != "Space Station" %}
@@ -148,6 +167,7 @@
         {% endfor %}
     </div>
     <a id="logout" href="/logout">Logout</a>
+    <a id="go_back" href="/signout">Go Back</a>
     <div id="ui" class='for_all'>
         <div id="Character"><a href="character_sheet">Character Sheet</a></div>
         <div id="current planet">

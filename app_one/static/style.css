@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+body {
     background-image: url(./img/star_wars_space_background.jpg);
 }
 
@@ -53,6 +56,10 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
+}
+
+.register_wrapper select {
+    width: 100%;
 }
 
 .register_wrapper h4 {
