@@ -42,6 +42,8 @@ def login(request):
 
 def logout(request):
     request.session.clear()
+    if 'Character_ID' in request.session:
+        del request.session['Character_ID']
     return redirect('/')
 
 def login_page(request):
