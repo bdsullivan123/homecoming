@@ -30,5 +30,5 @@ urlpatterns = [
     path('Character_Selection', views.Character_Selection),
     path('character/remove/<int:character_id>', views.characterremove),
     path('signout', views.signout),
-    # path('timer')
+    path('changelocation/<planet_name>',views.changelocation),
 ]

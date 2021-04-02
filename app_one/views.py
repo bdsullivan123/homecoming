@@ -162,10 +162,9 @@ def character_sheet(request):
 
 def planet_sheet(request,planet_name):
     Planet = Planets.objects.filter(planet_name=planet_name)
-    imgurl = f"img/{Planet[0].planet_type}.png"
     context = {
         'Planet': Planet[0],
-        'img': imgurl
+        'Character': Characters.objects.get(id=request.session['Character_ID']),
     }
     return render(request,'planet_sheet.html',context)
 
@@ -216,6 +215,12 @@ def signout(request):
         del request.session['Character_ID']
     return redirect('/character_selector')
 
+def changelocation(request,planet_name):
+    location = Characters.objects.get(id=request.session['Character_ID'])
+    location.Char_Location = Planets.objects.get(planet_name=request.POST['planet_name'])
+    location.save()
+    return redirect(f'/planet_sheet/{planet_name}')
+
 
 
 
@@ -230,9 +235,6 @@ def signout(request):
 # To DO 
 
 # ship selection / we can just use a default like the friggin yacht
-# fix travel menu
-# current location functionality (for each logged in char)
-# travel functionality
 
 # skills / levels Databased
 # current skill level functionality

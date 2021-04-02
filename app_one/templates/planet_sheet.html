@@ -24,9 +24,13 @@
             <h3>Summary</h3>
             <p>{{Planet.planet_desc}}</p>
         </div>
-        <form action="">
+        {% if Character.Char_Location.planet_name != Planet.planet_name %}
+        <form action="/changelocation/{{Planet.planet_name}}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="planet_name" value="{{Planet.planet_name}}">
             <button id="travel_button" type="submit">Travel to This Planet</button>
         </form>
+        {% endif %}
     </div>
 </body>
 
