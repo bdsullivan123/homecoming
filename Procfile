@@ -1,1 +1,1 @@
-web: waitress-serve --listen=*:8000 homecoming.wsgi:application
+web: waitress-serve --port=$PORT website:app
