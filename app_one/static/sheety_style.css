@@ -50,6 +50,10 @@ body {
     margin-bottom: 20px;
 }
 
+#planet_info h2 {
+    text-align: center;
+}
+
 #planet_info form {
     display: flex;
     margin: auto;
