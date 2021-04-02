@@ -51,7 +51,6 @@ class Planets(models.Model):
     planet_desc = models.TextField()
     planet_region = models.CharField(max_length=255)
 
-
 class Profession(models.Model):
     pass
 
