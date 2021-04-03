@@ -25,7 +25,7 @@ SECRET_KEY = 'z@bjq#tj^!rw8144rch)$_l9-get#vag8&ay73e2fvzf%*c#y-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['{{3.15.234.161}}']
+ALLOWED_HOSTS = ['ec2-3-14-141-156.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -48,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'homecoming.urls'
