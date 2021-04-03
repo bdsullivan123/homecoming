@@ -1,1 +1,0 @@
-web: waitress-serve --port=https://swhomecoming.herokuapp.com homecoming.wsgi:application
