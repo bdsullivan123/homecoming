@@ -1,0 +1,162 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url(./img/star_wars_space_background.jpg);
+    color: white;
+}
+
+#logout {
+    text-decoration: none;
+    background-image: none;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#boba {
+    width: 100px;
+    height: 300px;
+}
+
+.page_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: auto;
+}
+
+#planet_type {
+    width: 300px;
+    background-image: none;
+    margin-left: 35px;
+}
+
+#planet_info {
+    background-color: #151515;
+    border: 2px darkgrey solid;
+    border-radius: 10px;
+    background-image: none;
+    width: 25%;
+    margin: auto;
+    padding: 10px;
+    margin-top: -2%;
+}
+
+#planet_info form {
+    display: flex;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    margin: auto;
+    margin-top: 15px;
+}
+
+#go_back {
+    text-decoration: none;
+    background-image: none;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+}
+
+#travel_button {
+    text-decoration: none;
+    background-image: none;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+    margin: auto;
+}
+
+.Selector {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    /* flex-direction: row; */
+}
+
+.section {
+    background-color: #151515;
+    border: 2px darkgrey solid;
+    border-radius: 10px;
+    background-image: none;
+    width: 25%;
+    margin: auto;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.center_yourself {
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.button {
+    text-decoration: none;
+    background-image: none;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+    margin: auto;
+    margin-top: 10px;
+    width: 180px;
+    text-align: center;
+}
+
+.button:hover {
+    color: white;
+}
+
+#character_box {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+#character_box button {
+    text-decoration: none;
+    background-image: none;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    background-color: #484848;
+    color: white;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    width: 180px;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px;
+}
